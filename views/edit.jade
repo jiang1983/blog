@@ -1,0 +1,13 @@
+//
+   Created by Jiangda on 2015/7/7.
+
+include header
+
+form(method="post")
+    标题：
+    input(type="text",name="title",value="#{post.title}",disabled="disabled")
+    br
+    文章：
+    textarea(name="post","rows"=20,cols=100)= post.post
+    br
+    input(type="submit",value="提交修改")

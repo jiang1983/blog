@@ -1,0 +1,36 @@
+//
+   Created by Jiangda on 2015/7/5.
+
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        title Blog
+        link(rel="stylesheet",href="/stylesheets/style.css")
+    body
+        header
+            h1= title
+        nav
+            span
+                a(title="主页",href='/')主页
+            //if(!user)
+            -if(!user){
+            span
+                a(title="登录",href='/login')登录
+            span
+                a(title="注册",href='/reg')注册
+            -}else{
+            span
+                a(title="注销",href='/logout')注销
+            span
+                a(title="发表",href='/post')发表
+            span
+                a(title="上传",href='/upload')上传
+            -}
+        article
+            -if(success){
+                div= success
+            -}
+            -if(error){
+                div= error
+            -}

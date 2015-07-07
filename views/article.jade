@@ -1,0 +1,20 @@
+//
+   Created by Jiangda on 2015/7/6.
+
+include header
+p
+    -if(user && (user.name == post.name.name)){
+        span
+            a(class="edit",href='/edit/#{post.name.name}/#{post.time.day}/#{post.title}')编辑
+        span
+            a(class="edit",href='/remove/#{post.name.name}/#{post.time.day}/#{post.title}')删除
+    -}
+p
+    h2
+        a(href='/#{post.name.name}/#{post.time.day}/#{post.title}')=post.title
+p.info
+    p 作者:
+        a(href='/u/#{post.name.name}')= post.name.name
+        |  日期:#{post.time.day}
+p= post.post
+include footer
