@@ -1,0 +1,32 @@
+//
+   Created by Jiangda on 2015/7/8.
+br
+-if(post.comments!=null){
+each comment in post.comments
+    p
+        a(href= comment.website )= comment.name
+    span
+        p 回复于：
+            =comment.time
+    p
+        =comment.content
+-}
+form(method="post")
+    -if(user){
+        p 姓名：
+            input(type="text",name="name",value= user.name)
+        p 邮箱：
+            input(type="text",name="email",value= user.email)
+        p 网址：
+            input(type="text",name="website",value= "/u/"+user.name)
+    -}else{
+        p 姓名：
+            input(type="text",name="name")
+        p 邮箱：
+            input(type="text",name="email")
+        p 网址：
+            input(type="text",name="website",value="http://")
+    -}
+    textarea(name="content",rows="5",cols="80")
+    br
+    input(type="submit",value="留言")
